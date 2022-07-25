@@ -21,10 +21,23 @@ void draw() {}//End draw
 void keyPressed() 
 {
   //First Play Button
-  if ( key=='p' || key=='P' ) song1.play(); 
+  //if ( key=='p' || key=='P' ) song1.play(); 
   //
-  int loopNum3 = 2;
-  if ( key=='l' || key=='L' ) song1.loop(loopNum3);
+  //
+  println(key);
+  if (key=='1' || key=='9') {
+    if (key=='1') println("Looping Once");
+    if (key=='9') println("Looping 9 times");
+    String keystr = String.valueOf(key);
+    println("Number of Repeats is", keystr);
+    int loopNum = int(keystr);
+    song1.loop(loopNum);
+  }//End LOOP FUnctions
+  
+  
+  
+  /*int loopNum3 = 2;
+  if ( key=='l' || key=='L' ) song1.loop(loopNum3)*/
 }//EndkeyPressed
 //
 void mousePressed() {}//End mousePressed
