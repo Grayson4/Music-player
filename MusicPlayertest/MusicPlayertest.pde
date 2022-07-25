@@ -52,8 +52,15 @@ void keyPressed()
   //
   if (key=='f' || key=='F') song1.skip(1000);
   if (key=='r' || key=='R') song1.skip(-1000);
-  /*int loopNum3 = 2;
-  if ( key=='l' || key=='L' ) song1.loop(loopNum3)*/
+  //
+  if ( key=='s' || key=='S' ) {//stop button
+    if (song1.isPlaying()) {
+      song1.pause();
+      song1.rewind();
+    } else {//song is not playing
+      song1.rewind();
+    }
+  }//End stop
 }//EndkeyPressed
 //
 void mousePressed() {}//End mousePressed
