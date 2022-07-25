@@ -67,7 +67,7 @@ void keyPressed()
       song1.pause();
     } else if ( song1.position() >= song1.length() - song1.length()*1/5 ) {
       song1.rewind();
-      song1.pause();
+      song1.play();
     } else {
       song1.play();
     }
