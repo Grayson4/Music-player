@@ -18,16 +18,16 @@ void setup()
 //
 void draw() 
 {
-  if ( song1.isLooping()&& song1.loopCount()!=-1 ) println("there are", song1.loopCount() ,"loops left.");
+  if ( song1.isLooping()&& song1.loopCount()!=-1 ) println("there are", song1.loopCount(), "loops left.");
   if ( song1.isLooping()&& song1.loopCount()==-1 ) println("Looping Infinity");
   if ( song1.isPlaying() && !song1.isLooping() ) println("Play Once");
-  println("Song position", song1.position(),"song Length", song1.length() );
+  println("Song position", song1.position(), "song Length", song1.length() );
 }//End draw
 //
 void keyPressed() 
 {
   //First Play Button
-  if ( key=='p' || key=='P' ) song1.play(); 
+  //if ( key=='p' || key=='P' ) song1.play(); 
   //
   //
   println(key);
@@ -60,9 +60,21 @@ void keyPressed()
     } else {//song is not playing
       song1.rewind();
     }
-  }//End stop
+  }//End stop Button
+  //
+  if ( key=='p' || key=='P' ) {//PAUSE Button
+    if ( song1.isPlaying() ) {
+      song1.pause();
+    } else if ( song1.position() >= song1.length() - song1.length()*1/5 ) {
+      song1.rewind();
+      song1.pause();
+    } else {
+      song1.play();
+    }
+  }//End PAUSE Button
 }//EndkeyPressed
 //
-void mousePressed() {}//End mousePressed
+void mousePressed() {
+}//End mousePressed
 //
 //End MAIN Program
