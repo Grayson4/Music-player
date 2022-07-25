@@ -21,6 +21,7 @@ void draw()
   if ( song1.isLooping()&& song1.loopCount()!=-1 ) println("there are", song1.loopCount() ,"loops left.");
   if ( song1.isLooping()&& song1.loopCount()==-1 ) println("Looping Infinity");
   if ( song1.isPlaying() && !song1.isLooping() ) println("Play Once");
+  println("Song position", song1.position(),"song Length", song1.length() );
 }//End draw
 //
 void keyPressed() 
@@ -37,16 +38,20 @@ void keyPressed()
     int loopNum = int(keystr);
     song1.loop(loopNum);
   }//End LOOP FUnctions
+  //
   if ( key=='i' || key=='I' ) song1.loop();
   if ( key>= '2' || key=='0') println("I do not loop that much, press i for infinite loop");
   //
-  if ( key=='m' || key=='M' ) {
+  if ( key=='m' || key=='M' ) {//Mute Button
     if  ( song1.isMuted()) {
       song1.unmute();
     } else {
       song1.mute();
     }
   }//End Mute Button
+  //
+  if (key=='f' || key=='F') song1.skip(1000);
+  if (key=='r' || key=='R') song1.skip(-1000);
   /*int loopNum3 = 2;
   if ( key=='l' || key=='L' ) song1.loop(loopNum3)*/
 }//EndkeyPressed
