@@ -13,12 +13,15 @@ void setup()
 {
   minim = new Minim(this);
   song1 = minim.loadFile("groove.mp3");
-  //song1.play();
-  song1.loop();
+  //song1.loop();
 }//End setup
 //
 void draw() {}//End draw
 //
-void keyPressed() {}//EndkeyPressed
+void keyPressed() 
+{
+  //First Play Button
+  if ( key=='p' || key=='P' ) song1.play(); 
+}//EndkeyPressed
 //
 void mousePressed() {}//End mousePressed
